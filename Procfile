@@ -1,0 +1,1 @@
+web: gunicorn BappaMA.wsgi --log-file -
