@@ -1,0 +1,66 @@
+{% extends 'UserApp/index.html' %}
+{% load static %}
+{% block Content %}
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{% static 'css/showidol_list.css' %}">
+
+<!--   -->
+<div class="container">
+    <div class="row row1 mb-5">
+        <form class="d-flex" action="/search_text">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="sq">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+    </div>
+    <div class="row">
+        <div class="card">
+            <ul class="nav nav-pills nav-fill">
+                {% for cat in cats %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/categories_list/{{cat.id}}">{{cat.name}}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    {% if idol %}
+    <div class="row mt-5">
+        {% for idol in idol %}
+        <div class="col-md-3 detail_card">
+            <div class="product-grid">
+                <div class="product-image">
+                    <a href="/view_idol/{{idol.id}}" class="image">
+                        <img class="pic-1" src="{{idol.image1.url}}">
+                    </a>
+                    <span class="product-sale-label">NEW</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="title">{{idol.model_name}}-{{idol.model_no}}</h3>
+                    <div class="price">{{idol.price}}.00 Rs</div>
+                    <div class="product-button-group">
+                        <a class="add-to-cart" href="https://wa.me/%2B918668645580?text=Hi.%20I'm%20interested%20in%20this%20Ganesh%20Murti%20--Link:%20www.bappamorayaarts.com/view_idol/{{idol.id}}" target="_blank" rel="noopener"><i class="fa fa-whatsapp"></i>Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="row">
+        <p style="text-align: center; margin: 50px 0px 50px 0px;">No Idol Found</p>
+    </div>
+    {% endif %}
+</div>
+<!--   -->
+<!--   -->
+<!--   -->
+<!--   -->
+<script type="text/javascript">
+    var nav = document.querySelector('nav');
+    window.addEventListener('DOMContentLoaded', function () {
+        nav.classList.remove('navbar-dark');
+        nav.classList.add('bg-light', 'navbar-light', 'shadow');
+    });
+</script>
+{% endblock %}

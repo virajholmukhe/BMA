@@ -16,6 +16,7 @@
 
     <!-- Bootstrap.css, Jquery.js, Bootstrap.js  -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
     
     <!-- CSS (Static Files) -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
@@ -23,56 +24,46 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
 
     <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/d067c434dc.js" crossorigin="anonymous"></script>
 
 
 </head> 
 <body>
     <!-- Bootstrap.js with popper  -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 
 
 <!-- Nav Bar Start -->
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
+<div class="container">
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark ">
+    <div class="container">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <a class="navbar-brand" href="/home">Bappa Moraya Arts</a>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/home">Home</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Types of idol
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Red Soil</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
+            <a class="nav-link active" href="/home#categories"><i class="fas fa-palette"></i> Categories</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link active " href="/home#locations"><i class="fas fa-map-marked-alt"></i> Pickup Points</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            <a class="nav-link active" href="/home#about_us"><i class="far fa-edit"></i> About-us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/home#conatact_us"><i class="far fa-address-card"></i> Contact-us</a>
           </li>
         </ul>
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
       </div>
     </div>
 </nav>
-
+</div>
 <!-- Nav Bar End -->
 
 
@@ -83,6 +74,54 @@
 
 <!-- Footer start -->
 
+<footer class="site-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-6" >
+        <h6>About</h6>
+          <p class="text-justify" style="padding-right: 60px;">    We, 'Bappa Moraya Arts' started giving a online booking service of ganesh idols(Murti's)  from this year via what's app. We are in this buisiness from last 5 years .
+          We have a wide range of choices of ganesh idols in our website or you can visit our Store.
+          Our idols are made from Red Soil, Shadu Mati, Paper pulp and Natural colours. they are completely eco-friendly idols. they are 100% dissolvable in water, and after visarjan soil can be used to plant a tree.</p>
+      </div>
+
+      <div class="col-xs-6 col-md-3">
+        <h6>Categories</h6>
+        <ul class="footer-links">
+          {% for cat in cats %}
+          <li><a href="/categories_list/{{cat.id}}">{{cat.name}}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="col-xs-6 col-md-3">
+        <h6>Quick Links</h6>
+        <ul class="footer-links">
+          <li><a href="/home#about_us">About Us</a></li>
+          <li><a href="/home#conatact_us">Contact Us</a></li>
+          <li><a href="/home#locations">Our-Locations</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-sm-6 col-xs-12">
+        <p class="copyright-text">Copyright &copy; 2017 All Rights Reserved.</p>
+        <p class="copyright-text" >Website designed by 
+          <a href="https://virajholmukhe.pythonanywhere.com/" target="_blank" style="text-decoration: underline;" >Viraj N. Holmukhe</a>.
+        </p>
+      </div>
+
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <ul class="social-icons">
+          <li><a class="facebook" href="https://www.facebook.com/watch/ashishpote9100/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+          <li><a class="twitter" href="https://www.instagram.com/bappamorayaarts/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
 
 <!-- Footer end -->
 

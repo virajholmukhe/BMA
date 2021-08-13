@@ -1,0 +1,125 @@
+{% extends 'UserApp/index.html' %}
+{% load static %}
+{% block Content %}
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{% static 'css/showidol.css' %}">
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+
+<!-- View Template -->
+
+<div class="container">
+    <div class="card mb-3">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="{{idol.image1.url}}" class="img-fluid rounded-start" alt="#">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+                <div class="name" style="display: flex;">
+                    <h5 class="card-title" style="margin-right: 50px;">Model No: {{idol.model_no}}</h5>
+                    <h5 class="card-title">Pattern Name: {{idol.model_name}}</h5>
+                </div>
+                <p class="card-text"><small class="text-muted">{{idol.category.name}}</small></p>
+                <h5 class="card-text">Height: {{idol.height}}</h5>
+                <h5 class="card-text">Price: {{idol.price}}.00 Rs</h5>
+                <h5 class="card-text">Description: </h5>
+                <p class="card-text">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{idol.category.description}}</p>
+                <h5 class="card-text">Instructions: </h5>
+                <p class="card-text">Packaging extra charges will be 10%.<br>50% amount should be paid while booking.<br>Booking amount will not get refunded.<br>Remaining amount should be paid before delivery.<br>please be present during loading of idols in transport vehicle.</p>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="row" style="text-align: center;">
+        <div class="product-grid">
+            <div class="product-content">
+                <div class="product-button-group">
+                    <a class="add-to-cart" style="font-size: 25px;" href="https://wa.me/%2B918668645580?text=Hi.%20I'm%20interested%20in%20this%20Ganesh%20Murti%20--Link:%20www.bappamorayaarts.com/view_idol/{{idols.id}}" target="_blank" rel="noopener"><i class="fa fa-whatsapp"></i>Book Now</a>
+                </div>
+            </div>  
+        </div> 
+    </div>
+    <hr>
+</div>
+
+<div class="container card mt-5 mb-3 heading_bar">
+    <div class="container-fluid" style="display: flex; justify-content: space-evenly;">
+      <h3 class="mt-4 mb-4" style="text-align: center;">Similar Murti's</h3>
+    </div>
+</div>
+
+<!-- Owl Carousel  -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-1">
+
+        </div>
+        <div class="col-md-10">
+            <div class="owl-carousel owl-theme">
+                {% for idols in idols %}
+                <div class="product-grid">
+                    <div class="product-image">
+                        <a href="/view_idol/{{idols.id}}" class="image">
+                            <img class="pic-1" src="{{idols.image1.url}}">
+                        </a>
+                        <span class="product-sale-label">NEW</span>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title">{{idols.model_no}}</h3>
+                        <div class="price">{{idols.price}}</div>
+                        <div class="product-button-group">
+                            <a class="add-to-cart" href="https://wa.me/%2B918668645580?text=Hi.%20I'm%20interested%20in%20this%20Ganesh%20Murti%20--Link:%20www.bappamorayaarts.com/view_idol/{{idols.id}}" target="_blank" rel="noopener"><i class="fa fa-whatsapp"></i>Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-md-1">
+
+        </div>
+    </div>
+</div>
+<script>
+    $(".owl-carousel").owlCarousel({
+    margin: 20,
+    loop: true,
+    
+    autoplay: true,
+    autoplayTimeout: 10000,
+    responsiveClass:true,
+    stagePadding: 50,
+    responsive: {
+        0:{
+            items:1,
+            nav: false
+            },
+        450:{
+            items:2,
+            nav: false
+            },
+        650:{
+            items:3,
+            nav: false
+            },
+        850:{
+            items:4,
+            nav: false
+            },
+        }
+    });
+</script>
+<!--   -->
+<!--   -->
+<!--   -->
+<script type="text/javascript">
+    var nav = document.querySelector('nav');
+    window.addEventListener('DOMContentLoaded', function () {
+        nav.classList.remove('navbar-dark');
+        nav.classList.add('bg-light', 'navbar-light', 'shadow');
+    });
+</script>
+{% endblock %}

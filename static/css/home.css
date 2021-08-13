@@ -1,0 +1,180 @@
+html {
+    scroll-padding-top: 70px; /* height of sticky header */
+}
+:root{
+    --main-color1: #eb4d4b;
+    --text-color: #131e2c;
+}
+.carousel-item > img {
+    object-fit: cover;
+    height: calc(80vh);
+    width: 100%;
+}
+.card_main{
+    height: 20vh;
+    border: 0;
+}
+.heading_bar{
+    background: rgb(229, 244, 255);
+    background: radial-gradient(circle, rgba(161,255,198,1) 0%, rgba(188,238,255,1) 100%); 
+    font-family: 'Ubuntu', sans-serif;
+}
+#categories{
+    margin: 0px 0px 0px 0px;
+}
+.cat_card{
+    border: none;
+    transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
+    overflow:hidden;
+    border-radius:0px;
+    min-height:350px;
+    box-shadow: 0 0 2px 0 rgba(0,0,0,0.2);
+    color: indigo;
+    background-size:120%;
+    background-repeat:no-repeat;
+    background-position: center center;
+}
+.cat_card:before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: inherit;
+    -webkit-filter: grayscale(1);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+.cat_card:hover {
+    transform: scale(0.95);
+    box-shadow: 0 0 5px -2px rgba(0,0,0,0.3);
+    background-size:130%;
+    transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+a{
+    text-decoration: none;
+}
+.card1{
+    height: 8vh;
+    -webkit-box-shadow: 0 1px 3px 0 #a8a8a8;
+    -moz-box-shadow: 0 1px 3px 0 #a8a8a8;
+    box-shadow: 0 1px 3px 0 #a8a8a8;
+}
+.card2{
+    height: 8vh;
+    -webkit-box-shadow: 0 1px 3px 0 #a8a8a8;
+    -moz-box-shadow: 0 1px 3px 0 #a8a8a8;
+    box-shadow: 0 1px 3px 0 #a8a8a8;
+    margin: 0px 0px 50px 0px;
+}
+
+.detail_card:hover{
+    transform: scale(0.95);
+    background-size:130%;
+    transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+.product-grid{
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+}
+.product-grid .product-image{ position: relative; }
+.product-grid .product-image a.image{ display: block; }
+.product-grid .product-image img{
+    width: 100%;
+    height: auto;
+}
+.product-image .pic-1{
+    opacity: 1;
+    backface-visibility: hidden;
+    transition: all 0.3s ease-in-out;
+}
+.product-grid:hover .product-image .pic-2{ opacity: 1; }
+.product-grid .product-sale-label,
+.product-grid .product-discount-label{
+    color: #fff;
+    background: #da5555;
+    font-size: 12px;
+    letter-spacing: 1px;
+    line-height: 14px;
+    padding: 5px 11px;
+    border-radius: 12px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    transition: all 0.4s ease;
+}
+.product-grid .product-sale-label{
+    background: #2ba968;
+    text-transform: uppercase;
+    left: 10px;
+    right: auto;
+}
+.product-grid .product-content{ padding: 12px; }
+.product-grid {
+    padding: 0;
+    margin: 0 0 7px;
+    list-style: none;
+}
+.product-grid  li{
+    color: var(--text-color);
+    font-size: 12px;
+    display: inline-block;
+}
+.product-grid  li.disable{ color: rgba(0,0,0,.20); }
+.product-grid .title{
+    color: var(--text-color);
+    font-size: 20px;
+    text-transform: capitalize;
+    margin: 0 0 7px;
+}
+.product-grid .title a{
+    color: var(--text-color);
+    transition: all 500ms;
+}
+.product-grid .title a:hover{ color: var(--main-color1); }
+.product-grid .price{
+    color: var(--text-color);
+    font-size: 18px;
+    letter-spacing: 0.005em;
+    margin-bottom: 10px;
+}
+.product-grid .price span{
+    color: #a7a7a7;
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: line-through;
+}
+.product-grid .product-button-group{
+    position: relative;
+    z-index: 1;
+}
+.product-grid .add-to-cart{
+    color: var(--text-color);
+    background: #f4f4f4;
+    font-size: 14px;
+    width: calc(100% - 75px);
+    padding: 8px 3px;
+    margin: 0 auto;
+    display: inline-block;
+    text-decoration: none;
+    transition: all 0.25s ease 0s;
+}
+.product-grid .add-to-cart i{
+    margin-right: 8px;
+    transition: all 0.25s ease 0s;
+}
+.product-grid:hover .add-to-cart{
+    color:#fff;
+    background: var(--text-color);
+}
+.product-grid:hover .add-to-cart i{
+    display: inline-block;
+    visibility: visible;
+}
+@media only screen and (max-width:990px){
+    .product-grid{ margin-bottom: 30px; }
+}
+
+
