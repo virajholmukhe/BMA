@@ -58,10 +58,10 @@
       <a href="/categories_list/{{cat.id}}">
         <div class="col">
           <div class="card cat_card ">
-            <img src="{% static 'Images/03-min.JPG' %}" class="card-img-top" alt="...">
+            <img src="{{cat.image.url}}" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">{{cat.name}}</h5>
-              <p class="card-text">No harmful chemicals used, mixture of mud and red soil.</p>
+              <p class="card-text">{{cat.description_min}}</p>
             </div>
           </div>
         </div>

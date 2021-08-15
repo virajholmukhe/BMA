@@ -4,6 +4,7 @@ from django.db.models.fields import CharField, TextField
 class Categories(models.Model):
     name = CharField(max_length=100)
     description = TextField(max_length=1000,blank=True)
+    description_min = TextField(max_length=1000,blank=True)
     image = models.ImageField(upload_to="Images0",blank=True,default=0)
 
     class Meta:

@@ -22,7 +22,7 @@ def home(request):
 
 def showCategorywiseIdols(request,cid):
     cat = Categories.objects.filter(~Q(id=cid))
-    cats = Categories.objects.filter(~Q(id=3))
+    cats = Categories.objects.filter(~Q(id=3)).order_by('-id')
     idol = Idol.objects.filter(category_id=cid)
     return render(request,"UserApp/view_idols_list.html",{"cat":cat,"idol":idol,"cats":cats})
 
