@@ -7,7 +7,7 @@ from django.conf.urls.static import static
 from django.views.static import serve
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin_7507507535/', admin.site.urls),
     path('',include('UserApp.urls')),
     path('accounts/',include('UserApp.urls')),
     re_path(r'^media/(?P<path>.*)$', serve, {

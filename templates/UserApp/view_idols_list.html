@@ -5,6 +5,25 @@
 <!-- css -->
 <link rel="stylesheet" type="text/css" href="{% static 'css/showidol_list.css' %}">
 
+<a href="javascript:" id="return-to-top"><i class="fas fa-arrow-up"></i></a>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script>
+      // ===== Scroll to Top ==== 
+$(window).scroll(function() {
+    if ($(this).scrollTop() >= 50) {        // If page is scrolled more than 50px
+        $('#return-to-top').fadeIn(200);    // Fade in the arrow
+    } else {
+        $('#return-to-top').fadeOut(200);   // Else fade out the arrow
+    }
+});
+$('#return-to-top').click(function() {      // When arrow is clicked
+    $('body,html').animate({
+        scrollTop : 0                       // Scroll to top of body
+    }, 500);
+});
+</script>
+
 <!--   -->
 <div class="container">
     <div class="row row1 mb-5">
@@ -18,10 +37,24 @@
             <ul class="nav nav-pills nav-fill">
                 {% for cat in cats %}
                 <li class="nav-item">
-                    <a class="nav-link" href="/categories_list/{{cat.id}}">{{cat.name}}</a>
+                    <a class="nav-link" href="/categories_list/{{cat.id}}"><i class="fas fa-palette"></i> {{cat.name}}</a>
                 </li>
                 {% endfor %}
             </ul>
+        </div>
+    </div>
+
+    <div class="row ">
+        <div class="card bg-primary mt-3 mb-3 text-center ">
+        {% if cat_name %}
+            <div class="card-body" style="color: white;">
+                {{cat_name}}
+            </div>
+        {% else %}
+            <div class="card-body" style="color: white;">
+                Complete Collection
+            </div>
+        {% endif %}
         </div>
     </div>
     {% if idol %}

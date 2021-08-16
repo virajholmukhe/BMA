@@ -5,6 +5,25 @@
 <!-- css -->
 <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
 
+<a href="javascript:" id="return-to-top"><i class="fas fa-arrow-up"></i></a>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script>
+      // ===== Scroll to Top ==== 
+$(window).scroll(function() {
+    if ($(this).scrollTop() >= 50) {        // If page is scrolled more than 50px
+        $('#return-to-top').fadeIn(200);    // Fade in the arrow
+    } else {
+        $('#return-to-top').fadeOut(200);   // Else fade out the arrow
+    }
+});
+$('#return-to-top').click(function() {      // When arrow is clicked
+    $('body,html').animate({
+        scrollTop : 0                       // Scroll to top of body
+    }, 500);
+});
+</script>
+
 <!-- Carousel crossfade -->
 <section id="home">
   <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
@@ -35,7 +54,7 @@
     <div class="text-center" style="color: red; margin-top: 15px;">
       <h2>Book your Ganesha Now...</h2>
       <p>Check all available idols clicking below</p>
-      <a href="/view_all_idols_list" role="button" class="btn btn-outline-dark px-5">View Ganesh Murti's</a>
+      <a href="/view_all_idols_list" role="button" class="btn btn-outline-dark px-5">View Our Collection</a>
     </div>
   </div>
 </div>
@@ -115,13 +134,14 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6">
-        <p class="mt-3">Ganesh Peth</p>
+        <p class="mt-3">722, Ganesh Peth <a href="https://www.google.com/maps?q=18.51214599609375,73.86233520507812&z=17&hl=en" target="_blank"> Get Directions <i class="fas fa-directions"></i></a></p>
         <div class="ratio ratio-16x9">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.370634562381!2d73.86014651489259!3d18.51214598741387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTjCsDMwJzQzLjciTiA3M8KwNTEnNDQuNCJF!5e0!3m2!1sen!2sin!4v1628842898151!5m2!1sen!2sin" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.370634562381!2d73.86014651489259!3d18.51214598741387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTjCsDMwJzQzLjciTiA3M8KwNTEnNDQuNCJF!5e0!3m2!1sen!2sin!4v1628842898151!5m2!1sen!2sin" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
       </div>
       <div class="col-md-6">
-        <p class="mt-3">Khadak Police Line, Shukrawar Peth</p>
+        <p class="mt-3">Khadak Police Line, Shukrawar Peth <a href="https://goo.gl/maps/5TE4AKioWi3sm8Z76" target="_blank"> Get Directions <i class="fas fa-directions"></i></a></p>
+        <p class="mt-3"></p>
         <div class="ratio ratio-16x9">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d945.8617583089953!2d73.85845595073515!3d18.508690232401303!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTjCsDMwJzMxLjEiTiA3M8KwNTEnMzEuMyJF!5e0!3m2!1sen!2sin!4v1628845710598!5m2!1sen!2sin" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
@@ -272,7 +292,7 @@
   var nav = document.querySelector('nav');
 
   window.addEventListener('scroll', function () {
-    if (window.pageYOffset > 600) {
+    if (window.pageYOffset > 400) {
       nav.classList.remove('navbar-dark');
       nav.classList.add('bg-light', 'navbar-light', 'shadow');
       
