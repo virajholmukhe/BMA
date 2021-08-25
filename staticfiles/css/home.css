@@ -5,9 +5,14 @@ html {
     --main-color1: #eb4d4b;
     --text-color: #131e2c;
 }
-.carousel-item > img {
+.carousel-item2 > img {
     object-fit: cover;
     height: calc(80vh);
+    width: 100%;
+}
+.carousel-item1 > img {
+    object-fit: cover;
+    height: calc(60vh);
     width: 100%;
 }
 .card_main{
